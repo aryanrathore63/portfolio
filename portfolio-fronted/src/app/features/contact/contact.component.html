@@ -1,0 +1,202 @@
+<section class="contact" id="contact">
+  <div class="contact-container">
+    <!-- Section Header -->
+    <div class="section-header" appScrollAnimate="fade-down" [animDuration]="700">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="section-line"></div>
+      <p class="section-subtitle">Have a project in mind? Let's work together!</p>
+    </div>
+
+    <div class="contact-content">
+      <!-- Contact Form -->
+      <div class="contact-form-wrapper glass-card"
+           appScrollAnimate="slide-3d-left"
+           [animDelay]="100"
+           [animDuration]="800">
+        <h3 class="form-title">Send a Message</h3>
+        
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+          <!-- Name Field -->
+          <div class="form-group" appScrollAnimate="fade-up" [animDelay]="200" [animDuration]="500">
+            <label for="name" class="form-label">Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              formControlName="name" 
+              class="form-input"
+              placeholder="Your name"
+              [class.error]="name?.invalid && name?.touched">
+            <div class="error-message" *ngIf="name?.invalid && name?.touched">
+              <span *ngIf="name?.errors?.['required']">Name is required</span>
+              <span *ngIf="name?.errors?.['minlength']">Name must be at least 2 characters</span>
+            </div>
+          </div>
+
+          <!-- Email Field -->
+          <div class="form-group" appScrollAnimate="fade-up" [animDelay]="300" [animDuration]="500">
+            <label for="email" class="form-label">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              formControlName="email" 
+              class="form-input"
+              placeholder="your.email@example.com"
+              [class.error]="email?.invalid && email?.touched">
+            <div class="error-message" *ngIf="email?.invalid && email?.touched">
+              <span *ngIf="email?.errors?.['required']">Email is required</span>
+              <span *ngIf="email?.errors?.['email']">Please enter a valid email</span>
+            </div>
+          </div>
+
+          <!-- Subject Field -->
+          <div class="form-group" appScrollAnimate="fade-up" [animDelay]="400" [animDuration]="500">
+            <label for="subject" class="form-label">Subject</label>
+            <input 
+              type="text" 
+              id="subject" 
+              formControlName="subject" 
+              class="form-input"
+              placeholder="What's this about?"
+              [class.error]="subject?.invalid && subject?.touched">
+            <div class="error-message" *ngIf="subject?.invalid && subject?.touched">
+              <span *ngIf="subject?.errors?.['required']">Subject is required</span>
+              <span *ngIf="subject?.errors?.['minlength']">Subject must be at least 3 characters</span>
+            </div>
+          </div>
+
+          <!-- Message Field -->
+          <div class="form-group" appScrollAnimate="fade-up" [animDelay]="500" [animDuration]="500">
+            <label for="message" class="form-label">Message</label>
+            <textarea 
+              id="message" 
+              formControlName="message" 
+              class="form-input textarea"
+              rows="5"
+              placeholder="Tell me about your project..."
+              [class.error]="message?.invalid && message?.touched"></textarea>
+            <div class="error-message" *ngIf="message?.invalid && message?.touched">
+              <span *ngIf="message?.errors?.['required']">Message is required</span>
+              <span *ngIf="message?.errors?.['minlength']">Message must be at least 10 characters</span>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            type="submit" 
+            class="submit-button"
+            [disabled]="contactForm.invalid || isSubmitting"
+            appScrollAnimate="zoom-in"
+            [animDelay]="600"
+            [animDuration]="500">
+            <span *ngIf="!isSubmitting">Send Message</span>
+            <span *ngIf="isSubmitting" class="loading-text">
+              <svg class="spinner" viewBox="0 0 50 50">
+                <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+              </svg>
+              Sending...
+            </span>
+          </button>
+
+          <!-- Success Message -->
+          <div class="success-message" *ngIf="submitSuccess" [@fadeInUp]>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span>Message sent successfully! I'll get back to you soon.</span>
+          </div>
+
+          <!-- Error Message -->
+          <div class="error-message-box" *ngIf="submitError" [@fadeInUp]>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <span>{{ errorMessage }}</span>
+          </div>
+        </form>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="contact-info-wrapper"
+           appScrollAnimate="slide-3d-right"
+           [animDelay]="200"
+           [animDuration]="800">
+        <!-- Contact Info Card -->
+        <div class="contact-info-card glass-card" appTilt>
+          <h3 class="info-title">Contact Information</h3>
+          
+          <div class="info-items">
+            <!-- Email -->
+            <div class="info-item" appScrollAnimate="fade-left" [animDelay]="300" [animDuration]="500">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="info-content">
+                <span class="info-label">Email</span>
+                <a href="mailto:{{ contactInfo.email }}" class="info-value">{{ contactInfo.email }}</a>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="info-item" appScrollAnimate="fade-left" [animDelay]="400" [animDuration]="500">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <div class="info-content">
+                <span class="info-label">Phone</span>
+                <a href="tel:{{ contactInfo.phone }}" class="info-value">{{ contactInfo.phone }}</a>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="info-item" appScrollAnimate="fade-left" [animDelay]="500" [animDuration]="500">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="info-content">
+                <span class="info-label">Location</span>
+                <span class="info-value">{{ contactInfo.location }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Media Card -->
+        <div class="social-card glass-card" appScrollAnimate="fade-up" [animDelay]="600" [animDuration]="600" appTilt>
+          <h3 class="info-title">Connect With Me</h3>
+          
+          <div class="social-links">
+            <a *ngFor="let link of socialLinks; let i = index" 
+               [href]="link.url" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="social-link"
+               [attr.aria-label]="link.name"
+               appScrollAnimate="zoom-in"
+               [animDelay]="700 + (i * 100)"
+               [animDuration]="400">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path *ngIf="link.icon === 'github'" d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                <path *ngIf="link.icon === 'linkedin'" d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect *ngIf="link.icon === 'linkedin'" x="2" y="9" width="4" height="12"></rect>
+                <circle *ngIf="link.icon === 'linkedin'" cx="4" cy="4" r="2"></circle>
+                <path *ngIf="link.icon === 'twitter'" d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+              </svg>
+              <span>{{ link.name }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

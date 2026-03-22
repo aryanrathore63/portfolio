@@ -1,0 +1,8 @@
+<div class="loader-container" [class.small]="size === 'small'" [class.large]="size === 'large'">
+  <div class="loader-spinner">
+    <div class="spinner-ring"></div>
+    <div class="spinner-ring"></div>
+    <div class="spinner-ring"></div>
+  </div>
+  <p *ngIf="showText" class="loader-text">{{ text }}</p>
+</div>

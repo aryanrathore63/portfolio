@@ -1,0 +1,303 @@
+@import '../../../styles/variables';
+
+.experience {
+  padding: 6rem 2rem;
+  background: var(--bg-primary);
+}
+
+.experience-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Section Header
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-line {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+// Experience Timeline
+.experience-timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+// Timeline Item
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 4rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  // Left aligned items
+  &.left {
+    justify-content: flex-start;
+    
+    .experience-card {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+  
+  // Right aligned items
+  &.right {
+    justify-content: flex-end;
+    
+    .experience-card {
+      margin-left: auto;
+      margin-right: 0;
+    }
+  }
+}
+
+// Timeline Line
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+  transform: translateX(-50%);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 20px;
+    background: var(--accent-primary);
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    height: 20px;
+    background: var(--accent-secondary);
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+}
+
+// Timeline Marker (Fixed)
+.timeline-marker {
+  position: absolute;
+  left: 50%;
+  top: 2.5rem;
+  width: 14px;
+  height: 14px;
+  background: var(--bg-primary);
+  border: 4px solid var(--accent-secondary);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+// Timeline Dot (Moving)
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  background: var(--bg-primary);
+  border: 4px solid var(--accent-primary);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 20px var(--accent-glow);
+  z-index: 2;
+  transition: top 0.1s ease-out; /* Smooth scrolling effect */
+}
+
+// Glass Card
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px var(--shadow-color);
+  transition: all 0.3s ease;
+  width: calc(50% - 3rem);
+  
+  &:hover {
+    box-shadow: 0 12px 40px var(--shadow-color), 0 0 20px var(--accent-glow);
+    transform: translateY(-5px);
+  }
+}
+
+// Company Header
+.company-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.company-info {
+  .company-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .company-position {
+    font-size: 1.1rem;
+    color: var(--accent-primary);
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+.company-duration {
+  text-align: right;
+  
+  .duration-text {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .duration-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--bg-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+// Company Location
+.company-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  
+  .location-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+// Experience Description
+.experience-description {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+// Responsibilities
+.responsibilities {
+  .responsibilities-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+  
+  .responsibilities-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .responsibility-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    .bullet-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--accent-primary);
+      margin-top: 2px;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .experience {
+    padding: 4rem 1.5rem;
+  }
+  
+  .timeline-line {
+    left: 20px;
+  }
+  
+  .timeline-marker,
+  .timeline-dot {
+    left: 20px;
+  }
+  
+  .timeline-item {
+    flex-direction: column;
+    padding-left: 50px;
+    
+    &.left,
+    &.right {
+      justify-content: flex-start;
+    }
+  }
+  
+  .glass-card {
+    width: 100%;
+  }
+  
+  .company-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .company-duration {
+    text-align: left;
+  }
+}

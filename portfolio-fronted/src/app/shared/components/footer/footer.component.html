@@ -1,0 +1,81 @@
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Logo & Tagline -->
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <span class="logo-text">AR</span>
+        <span class="logo-subtitle">Portfolio</span>
+      </div>
+      <p class="footer-tagline">{{ developer.tagline }}</p>
+    </div>
+
+    <!-- Social Links -->
+    <div class="footer-social">
+      <h3 class="footer-heading">Connect</h3>
+      <div class="social-links">
+        <a *ngFor="let link of socialLinks" [href]="link.url" target="_blank" rel="noopener noreferrer"
+          class="social-link" [attr.aria-label]="link.name">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <!-- LinkedIn Icon -->
+            <g *ngIf="link.icon === 'linkedin'">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </g>
+            <!-- GitHub Icon -->
+            <g *ngIf="link.icon === 'github'">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+              </path>
+            </g>
+            <!-- Email Icon -->
+            <g *ngIf="link.icon === 'mail'">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </g>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3 class="footer-heading">Quick Links</h3>
+      <ul class="footer-nav">
+        <li><a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+        <li><a routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">About</a></li>
+        <li><a routerLink="/skills" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Skills</a></li>
+        <li><a routerLink="/experience" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Experience</a></li>
+        <li><a routerLink="/projects" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Projects</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-contact">
+      <h3 class="footer-heading">Contact</h3>
+      <div class="contact-info">
+        <a [href]="'mailto:' + developer.email" class="contact-link">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span>{{ developer.email }}</span>
+        </a>
+        <div class="contact-link">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>{{ developer.location }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <p>&copy; {{ currentYear }} {{ developer.name }}. All rights reserved.</p>
+    <p class="footer-credits">Built with Angular & .NET</p>
+  </div>
+</footer>

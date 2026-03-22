@@ -1,0 +1,55 @@
+{
+  "recommendations": [
+    // Angular
+    "angular.ng-template",
+    "Angular.ng-template",
+    
+    // TypeScript
+    "ms-vscode.vscode-typescript-next",
+    
+    // Prettier
+    "esbenp.prettier-vscode",
+    
+    // ESLint
+    "dbaeumer.vscode-eslint",
+    
+    // Git
+    "eamodio.gitlens",
+    
+    // Path Intellisense
+    "christian-kohler.path-intellisense",
+    
+    // Auto Import
+    "steoates.autoimport",
+    
+    // Auto Rename Tag
+    "formulahendry.auto-rename-tag",
+    
+    // Auto Close Tag
+    "formulahendry.auto-close-tag",
+    
+    // Bracket Pair Colorizer
+    "CoenraadS.bracket-pair-colorizer-2",
+    
+    // Error Lens
+    "usernamehw.errorlens",
+    
+    // Import Cost
+    "wix.vscode-import-cost",
+    
+    // TODO Highlight
+    "wayou.vscode-todo-highlight",
+    
+    // Material Icon Theme
+    "PKief.material-icon-theme",
+    
+    // One Dark Pro
+    "zhuangtongfa.material-theme",
+    
+    // Live Server
+    "ritwickdey.liveserver",
+    
+    // REST Client
+    "humao.rest-client"
+  ]
+}

@@ -1,0 +1,66 @@
+<section class="experience" id="experience">
+  <div class="experience-container">
+    <!-- Section Header -->
+    <div class="section-header" appScrollAnimate="fade-down" [animDuration]="700">
+      <h2 class="section-title">Work Experience</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Experience Timeline -->
+    <div class="experience-timeline" #timeline>
+
+      <!-- Continuous Timeline Line & Moving Dot -->
+      <div class="timeline-line"></div>
+      <div class="timeline-dot" [style.top.%]="dotPosition"></div>
+
+      <div *ngFor="let exp of experiences; let i = index" class="timeline-item" [class.left]="i % 2 === 0"
+        [class.right]="i % 2 === 1">
+
+        <!-- Experience Card -->
+        <div class="experience-card glass-card" [appScrollAnimate]="i % 2 === 0 ? 'slide-3d-left' : 'slide-3d-right'"
+          [animDelay]="i * 150" [animDuration]="800" appTilt>
+
+          <!-- Company Header -->
+          <div class="company-header">
+            <div class="company-info">
+              <h3 class="company-name">{{ exp.company }}</h3>
+              <p class="company-position">{{ exp.position }}</p>
+            </div>
+            <div class="company-duration">
+              <span class="duration-text">{{ formatDate(exp.startDate) }} - {{ exp.endDate ? formatDate(exp.endDate) :
+                'Present' }}</span>
+              <span class="duration-badge" *ngIf="exp.isCurrent">Current</span>
+            </div>
+          </div>
+
+          <!-- Company Location -->
+          <div class="company-location">
+            <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>{{ exp.location }}</span>
+          </div>
+
+          <!-- Description -->
+          <p class="experience-description">{{ exp.description }}</p>
+
+          <!-- Responsibilities -->
+          <div class="responsibilities" *ngIf="exp.responsibilities && exp.responsibilities.length > 0">
+            <h4 class="responsibilities-title">Key Responsibilities:</h4>
+            <ul class="responsibilities-list">
+              <li *ngFor="let responsibility of exp.responsibilities; let j = index" class="responsibility-item"
+                appScrollAnimate="fade-right" [animDelay]="i * 100 + j * 80" [animDuration]="500"
+                [animThreshold]="0.05">
+                <svg class="bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>{{ responsibility }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

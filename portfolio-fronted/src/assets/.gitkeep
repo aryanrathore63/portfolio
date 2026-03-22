@@ -1,0 +1,14 @@
+# Assets Folder
+
+This folder contains static assets for the portfolio application.
+
+## Recommended Structure:
+- images/ - Project screenshots, profile photos, etc.
+- icons/ - Custom icons and SVG files
+- fonts/ - Custom font files (if needed)
+- documents/ - PDFs, resumes, etc.
+
+## Notes:
+- Keep image sizes optimized for web performance
+- Use modern formats like WebP where supported
+- Consider using a CDN for large assets in production

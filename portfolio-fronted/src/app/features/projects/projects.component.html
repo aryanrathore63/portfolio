@@ -1,0 +1,116 @@
+<section class="projects" id="projects">
+  <div class="projects-container" #projectsContainer>
+    <!-- Section Header -->
+    <div class="section-header" appScrollAnimate="fade-down" [animDuration]="700">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Loading State -->
+    <div class="loading-container" *ngIf="isLoading">
+      <app-loader size="large" text="Loading projects..."></app-loader>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid" *ngIf="!isLoading">
+      <div class="project-card glass-card"
+           *ngFor="let project of filteredProjects; let i = index"
+           [appScrollAnimate]="i % 3 === 0 ? 'slide-3d-left' : i % 3 === 1 ? 'slide-3d-up' : 'slide-3d-right'"
+           [animDelay]="(i % 3) * 150"
+           [animDuration]="800"
+           [animThreshold]="0.08"
+           appTilt>
+
+        <div class="project-image">
+          <img [src]="project.imageUrl || 'https://via.placeholder.com/600x400/1a1a2e/00d4ff?text=Project+Image'"
+               [alt]="project.title"
+               class="project-img">
+          <div class="project-overlay">
+            <span class="project-category-badge">{{ project.category }}</span>
+          </div>
+        </div>
+
+        <div class="project-info">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+
+          <!-- Technologies -->
+          <div class="project-technologies">
+            <span *ngFor="let tech of project.techStack; let j = index"
+                  class="tech-badge"
+                  appScrollAnimate="flip-y"
+                  [animDelay]="i * 60 + j * 40"
+                  [animDuration]="400"
+                  [animThreshold]="0.02">
+              {{ tech }}
+            </span>
+          </div>
+
+          <!-- Project Links -->
+          <div class="project-links">
+            <a *ngIf="project.liveUrl"
+               [href]="project.liveUrl"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="project-link primary-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Live Demo
+            </a>
+            <a *ngIf="project.githubUrl"
+               [href]="project.githubUrl"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="project-link secondary-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Load More Loader -->
+    <div class="load-more-container" *ngIf="isLoadingMore">
+      <app-loader size="medium" text="Loading more projects..."></app-loader>
+    </div>
+
+    <!-- No More Projects Message -->
+    <div class="no-more-projects"
+         *ngIf="!isLoading && !isLoadingMore && !hasMoreProjects && projects.length > 0"
+         appScrollAnimate="fade-up" [animDuration]="500">
+      <p>You've reached the end of the projects list</p>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" *ngIf="!isLoading && projects.length === 0"
+         appScrollAnimate="zoom-in" [animDuration]="500">
+      <p>No projects found</p>
+    </div>
+
+    <!-- Projects Summary -->
+    <div class="projects-summary glass-card"
+         *ngIf="!isLoading && projects.length > 0"
+         appScrollAnimate="tilt-reveal"
+         [animDelay]="200"
+         [animDuration]="700">
+      <div class="summary-item" appScrollAnimate="zoom-in" [animDelay]="350" [animDuration]="500">
+        <span class="summary-number">{{ totalCount }}</span>
+        <span class="summary-label">Total Projects</span>
+      </div>
+      <div class="summary-item" appScrollAnimate="zoom-in" [animDelay]="500" [animDuration]="500">
+        <span class="summary-number">{{ projects.length }}</span>
+        <span class="summary-label">Loaded</span>
+      </div>
+      <div class="summary-item" appScrollAnimate="zoom-in" [animDelay]="650" [animDuration]="500">
+        <span class="summary-number">Open</span>
+        <span class="summary-label">Source</span>
+      </div>
+    </div>
+  </div>
+</section>

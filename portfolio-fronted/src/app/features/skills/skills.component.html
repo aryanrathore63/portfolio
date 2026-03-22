@@ -1,0 +1,63 @@
+<section class="skills" id="skills">
+  <div class="skills-container">
+    <!-- Section Header -->
+    <div class="section-header" appScrollAnimate="fade-down" [animDuration]="700">
+      <h2 class="section-title">Skills &amp; Technologies</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Skills Grid -->
+    <div class="skills-grid">
+      <div *ngFor="let category of skillCategories; let i = index"
+           class="skill-category glass-card"
+           appScrollAnimate="slide-3d-up"
+           [animDelay]="i * 120"
+           [animDuration]="750"
+           appTilt>
+
+        <!-- Category Header -->
+        <div class="category-header">
+          <span class="category-icon">{{ category.icon }}</span>
+          <h3 class="category-name">{{ category.name }}</h3>
+        </div>
+
+        <!-- Skills List -->
+        <div class="skills-list">
+          <div *ngFor="let skill of category.skills; let j = index"
+               class="skill-badge"
+               [style.border-color]="getProficiencyColor(skill.proficiency)"
+               appScrollAnimate="flip-x"
+               [animDelay]="i * 80 + j * 60"
+               [animDuration]="500"
+               [animThreshold]="0.05">
+            <span class="skill-name">{{ skill.name }}</span>
+            <div class="skill-proficiency">
+              <div
+                class="proficiency-bar"
+                [style.width]="skill.proficiency + '%'"
+                [style.background]="getProficiencyColor(skill.proficiency)"
+              ></div>
+            </div>
+            <span class="skill-level">{{ skill.proficiency }}%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills Summary -->
+    <div class="skills-summary glass-card" appScrollAnimate="tilt-reveal" [animDelay]="200" [animDuration]="700">
+      <div class="summary-item" appScrollAnimate="zoom-in" [animDelay]="350" [animDuration]="500">
+        <span class="summary-number">5</span>
+        <span class="summary-label">Skill Categories</span>
+      </div>
+      <div class="summary-item" appScrollAnimate="zoom-in" [animDelay]="500" [animDuration]="500">
+        <span class="summary-number">35+</span>
+        <span class="summary-label">Technologies</span>
+      </div>
+      <div class="summary-item" appScrollAnimate="zoom-in" [animDelay]="650" [animDuration]="500">
+        <span class="summary-number">Expert</span>
+        <span class="summary-label">Proficiency Level</span>
+      </div>
+    </div>
+  </div>
+</section>
