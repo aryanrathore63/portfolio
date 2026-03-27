@@ -1,0 +1,62 @@
+# System Design: Developer Portfolio 🏗️
+
+This document outlines the architecture and implementation details of the Full-Stack Developer Portfolio, covering both High-Level and Low-Level designs.
+
+---
+
+## 🏔️ 1. High-Level Design (HLD)
+
+The HLD focuses on the overall architecture, how components interact, and how the system is deployed.
+
+### A. Architecture Overview
+The project follows a **Client-Server Architecture** using a **Monorepo** structure.
+* **Frontend (Client)**: A Single Page Application (SPA) built with Angular 17/18.
+* **Backend (Server)**: A RESTful API built with .NET 10.
+* **Database**: Lightweight SQLite database for local and production data persistence.
+
+### B. System Communication
+1. The **Angular Frontend** makes asynchronous HTTP requests to the **.NET API**.
+2. The **API** processes the data (fetching skills, experiences, or sending emails).
+3. Data is returned as **JSON**, which the frontend then renders using dynamic 3D animations.
+
+### C. Deployment & Infrastructure
+* **Frontend**: Hosted on **Vercel/Netlify** for global edge delivery.
+* **Backend**: Hosted on **Render.com** inside a **Docker Container** (.NET 10 SDK).
+* **Networking**: Cross-Origin Resource Sharing (CORS) is configured on the backend to safely allow the frontend domain to communicate.
+
+---
+
+## 🚜 2. Low-Level Design (LLD)
+
+The LLD focuses on the internal code organization, specific classes, and data structures.
+
+### A. Frontend (Angular)
+The frontend uses a **Modular/Feature-based** structure:
+*   **`src/app/core`**: Contains singleton services (API calls), models, and global guards.
+*   **`src/app/features`**: Isolated components for each web section ([About](file:///c:/Users/ar226/Downloads/portfolio/portfolio-fronted/src/app/features/about/about.component.ts#11-52), [Projects](file:///c:/Users/ar226/Downloads/portfolio/portfolio-fronted/src/app/core/services/portfolio.service.ts#23-30), [Skills](file:///c:/Users/ar226/Downloads/portfolio/portfolio-fronted/src/app/features/skills/skills.component.ts#38-50), [Experience](file:///c:/Users/ar226/Downloads/portfolio/portfolio-fronted/src/app/core/services/portfolio.service.ts#56-63), [Contact](file:///c:/Users/ar226/Downloads/portfolio/portfolio-fronted/src/app/core/services/portfolio.service.ts#108-115)).
+*   **`src/app/shared`**: Reusable parts like:
+    *   **Directives**: [ScrollAnimateDirective](file:///c:/Users/ar226/Downloads/portfolio/portfolio-fronted/src/app/shared/directives/scroll-animate.directive.ts#28-148) (3D entries), [TiltDirective](file:///c:/Users/ar226/Downloads/portfolio/portfolio-fronted/src/app/shared/directives/tilt.directive.ts#3-84) (interactive cards), [FloatingEmojisDirective](file:///c:/Users/ar226/Downloads/portfolio/portfolio-fronted/src/app/shared/directives/floating-emojis.directive.ts#3-143) (hover effects).
+    *   **Components**: Header, Footer, Hero.
+*   **Three.js Integration**: The Hero section uses a custom service to render a 3D animated background canvas.
+
+### B. Backend (.NET 10)
+The backend follows a **Service-Oriented Pattern**:
+*   **Controllers**: Entry points that handle HTTP requests (e.g., `PortfolioController`, [ContactController](file:///c:/Users/ar226/Downloads/portfolio/portfolio-backend/Controllers/ContactController.cs#7-86)).
+*   **Services**: Interface-based logic (`IPortfolioService`, `IEmailService`) to keep the controllers clean.
+*   **Data Layer**: 
+    *   **[PortfolioDbContext](file:///c:/Users/ar226/Downloads/portfolio/portfolio-backend/Data/PortfolioDbContext.cs#6-238)**: Manages the SQLite connection using Entity Framework Core.
+    *   **Migrations**: Handle versioning of the database schema.
+*   **Settings**: [appsettings.json](file:///c:/Users/ar226/Downloads/portfolio/portfolio-backend/appsettings.json) stores paths, SMTP hosts, and secrets (injected via Environment Variables in production).
+
+### C. Data Model (Schema)
+*   **Experience**: Company, Position, StartDate, EndDate, IsCurrent, Responsibilities (Array).
+*   **Skill**: Name, Category (Frontend/Backend/etc.), Level/Icon.
+*   **Project**: Title, Description, Image, TechStack, Links.
+*   **Achievement**: Title, Description, Icon, Date.
+
+---
+
+## 🎨 3. UI/UX & Animations Logic
+1.  **Intersection Observer API**: Used inside the [ScrollAnimateDirective](file:///c:/Users/ar226/Downloads/portfolio/portfolio-fronted/src/app/shared/directives/scroll-animate.directive.ts#28-148) to detect when an element enters the viewport.
+2.  **CSS Variable Theming**: Central `variables.scss` for easy dark/light mode and accent color switching.
+3.  **RequestAnimationFrame**: Used in the emoji effect to ensure smooth 60fps animations without blocking the main thread.
