@@ -58,6 +58,30 @@ namespace PortfolioBackend.Data
                     Category = "Backend",
                     ImageUrl = "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800",
                     CreatedAt = new DateTime(2024, 3, 10)
+                },
+                new Project
+                {
+                    Id = 4,
+                    Title = "CareerGraph - Career Exploration Platform",
+                    Description = "Full-stack career discovery platform built with React 18, Vite, and Express.js, using CognoDB (Neo4j-compatible) to model career relationships. Features multi-hop Cypher traversals across roles, skills, projects, companies, and learning resources, plus an interactive query explainer, responsive accessible UI, loading and error states, modular custom hooks, and idempotent MERGE-based seed scripts. Deployed on Vercel and Render.",
+                    TechStack = new List<string> { "React 18", "Vite", "Express.js", "CognoDB", "Neo4j", "Cypher", "JavaScript", "Vercel", "Render" },
+                    GitHubUrl = "",
+                    LiveUrl = "https://career-graph-pink.vercel.app/",
+                    Category = "Full Stack",
+                    ImageUrl = "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800",
+                    CreatedAt = new DateTime(2024, 4, 15)
+                },
+                new Project
+                {
+                    Id = 5,
+                    Title = "Finance Backend API",
+                    Description = ".NET 10 REST API for financial records with JWT authentication, BCrypt password hashing, and role-based access control for Viewer, Analyst, and Admin users. Provides financial record CRUD operations, filtering, dashboard summaries, category breakdowns, and monthly trends, with centralized exception handling, Swagger JWT support, Entity Framework Core with SQLite, Docker containerization, and a modular RESTful architecture.",
+                    TechStack = new List<string> { ".NET 10", "C#", "ASP.NET Core", "JWT", "BCrypt", "RBAC", "Entity Framework Core", "SQLite", "Swagger", "Docker" },
+                    GitHubUrl = "",
+                    LiveUrl = "",
+                    Category = "Backend",
+                    ImageUrl = "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800",
+                    CreatedAt = new DateTime(2024, 5, 20)
                 }
             );
 
