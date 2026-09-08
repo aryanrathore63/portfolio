@@ -3,7 +3,8 @@
   <canvas #threeCanvas class="three-canvas"></canvas>
 
   <!-- Hero Content -->
-  <div class="hero-content" [@heroEnter] #heroContent>
+  <div class="hero-layout">
+    <div class="hero-content" [@heroEnter] #heroContent>
     <div class="hero-text">
       <p class="hero-greeting">Hello, I'm</p>
       <h1 class="hero-name">{{ developer.name }}</h1>
@@ -56,6 +57,13 @@
           <polyline points="22,6 12,13 2,6"></polyline>
         </svg>
       </a>
+    </div>
+    </div>
+
+    <div class="hero-profile" [@heroEnter]>
+      <div class="profile-frame">
+        <img src="assets/profile.jpg" alt="Aryan Rathore" class="profile-image">
+      </div>
     </div>
   </div>
 
