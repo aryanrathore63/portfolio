@@ -73,7 +73,7 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
   // Typewriter phrases
   phrases = [
     'Full Stack Software Engineer',
-    'Angular & .NET Developer',
+    'Software Developer',
     'Building Scalable Systems',
     'Creating Amazing Experiences'
   ];

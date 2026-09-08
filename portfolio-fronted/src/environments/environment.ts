@@ -4,7 +4,7 @@ export const environment = {
   developer: {
     name: 'Aryan Rathore',
     role: 'Full Stack Software Engineer',
-    tagline: 'Building scalable systems with Angular & .NET',
+    tagline: 'Software Developer',
     email: 'aryanrathore363@gmail.com',
     linkedin: 'https://linkedin.com/in/aryan-rathore01',
     github: 'https://github.com/aryanrathore63',
