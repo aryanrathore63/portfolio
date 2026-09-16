@@ -61,7 +61,7 @@ namespace PortfolioBackend.Data
                 },
                 new Project
                 {
-                    Id = 3,
+                    Id = 4,
                     Title = "Interactive Quiz Application",
                     Description = "GUI-based quiz engine with Object-Oriented design, SQL-backed dynamic question loading, and comprehensive JUnit test suite ensuring 100% code coverage.",
                     TechStack = new List<string> { "Java", "Spring Framework", "SQL", "JUnit", "MVC", "Maven" },
@@ -73,7 +73,7 @@ namespace PortfolioBackend.Data
                 },
                 new Project
                 {
-                    Id = 4,
+                    Id = 5,
                     Title = "CareerGraph - Career Exploration Platform",
                     Description = "Full-stack career discovery platform built with React 18, Vite, and Express.js, using CognoDB (Neo4j-compatible) to model career relationships. Features multi-hop Cypher traversals across roles, skills, projects, companies, and learning resources, plus an interactive query explainer, responsive accessible UI, loading and error states, modular custom hooks, and idempotent MERGE-based seed scripts. Deployed on Vercel and Render.",
                     TechStack = new List<string> { "React 18", "Vite", "Express.js", "CognoDB", "Neo4j", "Cypher", "JavaScript", "Vercel", "Render" },
@@ -85,7 +85,7 @@ namespace PortfolioBackend.Data
                 },
                 new Project
                 {
-                    Id = 5,
+                    Id = 6,
                     Title = "Finance Backend API",
                     Description = ".NET 10 REST API for financial records with JWT authentication, BCrypt password hashing, and role-based access control for Viewer, Analyst, and Admin users. Provides financial record CRUD operations, filtering, dashboard summaries, category breakdowns, and monthly trends, with centralized exception handling, Swagger JWT support, Entity Framework Core with SQLite, Docker containerization, and a modular RESTful architecture.",
                     TechStack = new List<string> { ".NET 10", "C#", "ASP.NET Core", "JWT", "BCrypt", "RBAC", "Entity Framework Core", "SQLite", "Swagger", "Docker" },
