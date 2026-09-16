@@ -26,6 +26,18 @@ namespace PortfolioBackend.Data
                 new Project
                 {
                     Id = 1,
+                    Title = "Stories | Full-Stack Story Publishing Platform",
+                    Description = "Built a full-stack story publishing platform supporting content creation, social engagement, and role-based administration with a responsive frontend and scalable REST API. Developed end-to-end features including a rich markdown editor, draft auto-save, story publishing workflow, infinite-scroll feeds, search, likes, comments, bookmarks, and an admin dashboard with seamless frontend-backend integration. Implemented production-ready capabilities including JWT authentication with refresh token rotation, TanStack React Query, Zustand, Bucket4j rate limiting, Swagger, and text-to-speech integration, improving security, performance, and developer experience.",
+                    TechStack = new List<string> { "Next.js", "React", "TypeScript", "Java", "Spring Boot", "Spring Security", "PostgreSQL", "Docker", "JWT" },
+                    GitHubUrl = "https://github.com/aryanrathore63/stories-app",
+                    LiveUrl = "https://stories-app-eight.vercel.app/",
+                    Category = "Full Stack",
+                    ImageUrl = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800",
+                    CreatedAt = new DateTime(2026, 2, 1)
+                },
+                new Project
+                {
+                    Id = 2,
                     Title = "Real-Time Chat App",
                     Description = "WebSocket-based real-time chat application with role-based access control, JWT authentication, and a complete CI/CD pipeline deployed on Linux servers.",
                     TechStack = new List<string> { "MERN", "TypeScript", "Socket.io", "JWT", "Docker", "MongoDB", "Express.js", "React" },
@@ -37,7 +49,7 @@ namespace PortfolioBackend.Data
                 },
                 new Project
                 {
-                    Id = 2,
+                    Id = 3,
                     Title = "TOO-YUM Food Delivery App",
                     Description = "Full-stack food delivery platform featuring live order tracking, user authentication, shopping cart, and secure checkout with payment integration.",
                     TechStack = new List<string> { "React", "Node.js", "MongoDB", "SQL", "JWT", "Express.js", "Redux" },
@@ -95,13 +107,13 @@ namespace PortfolioBackend.Data
                     Location = "Noida, Uttar Pradesh",
                     StartDate = new DateTime(2025, 7, 1),
                     EndDate = null,
-                    Description = "Developing enterprise applications using Angular, TypeScript, and .NET C#. Implementing CI/CD pipelines using Jenkins and Docker on Linux environments. Ensuring code quality through SonarQube analysis and following Agile/Scrum methodologies.",
+                    Description = "Developed and maintained full-stack features for the Debtdomain team using React, Java, Spring Boot, PostgreSQL, and AWS, delivering scalable enterprise financial applications in an Agile/Scrum environment. Designed and implemented responsive React workflows and Spring Boot REST APIs for Probability of Default (PD) and Loss Given Default (LGD) calculation flows, with seamless frontend-backend integration. Resolved 20+ production issues across React and Spring Boot applications, performed security vulnerability remediation using Fortify and Mend (SAST), and monitored applications with Splunk, improving application stability and supporting successful security audits.",
                     Responsibilities = new List<string>
                     {
-                        "Developed enterprise applications using Angular 17+ and .NET 8",
-                        "Implemented CI/CD pipelines with Jenkins and Docker",
-                        "Ensured code quality using SonarQube",
-                        "Participated in Agile/Scrum ceremonies"
+                        "Developed and maintained full-stack features for the Debtdomain team using React, Java, Spring Boot, PostgreSQL, and AWS",
+                        "Designed and implemented responsive React workflows and Spring Boot REST APIs for PD and LGD calculation flows",
+                        "Resolved 20+ production issues across React and Spring Boot applications and performed security remediation using Fortify and Mend",
+                        "Developed client data export functionality and delivered multiple production enhancements through GitHub, Jira, code reviews, and Agile development practices"
                     },
                     CompanyLogoUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/S%26P_Global_logo.svg/200px-S%26P_Global_logo.svg.png"
                 },
