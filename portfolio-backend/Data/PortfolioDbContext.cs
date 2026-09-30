@@ -107,15 +107,15 @@ namespace PortfolioBackend.Data
                     Location = "Noida, Uttar Pradesh",
                     StartDate = new DateTime(2025, 7, 1),
                     EndDate = null,
-                    Description = "Developed and maintained full-stack features for the Debtdomain team using React, Java, Spring Boot, PostgreSQL, and AWS, delivering scalable enterprise financial applications in an Agile/Scrum environment. Designed and implemented responsive React workflows and Spring Boot REST APIs for Probability of Default (PD) and Loss Given Default (LGD) calculation flows, with seamless frontend-backend integration. Resolved 20+ production issues across React and Spring Boot applications, performed security vulnerability remediation using Fortify and Mend (SAST), and monitored applications with Splunk, improving application stability and supporting successful security audits.",
+                    Description = "Worked on the Debtdomain team to build and maintain enterprise-grade financial software using React, Java, Spring Boot, PostgreSQL, and AWS. Contributed to full-stack features for Probability of Default (PD) and Loss Given Default (LGD) workflows, collaborated closely with stakeholders in an Agile environment, and helped improve the stability, performance, and security of production systems.",
                     Responsibilities = new List<string>
                     {
                         "Developed and maintained full-stack features for the Debtdomain team using React, Java, Spring Boot, PostgreSQL, and AWS",
-                        "Designed and implemented responsive React workflows and Spring Boot REST APIs for PD and LGD calculation flows",
-                        "Resolved 20+ production issues across React and Spring Boot applications and performed security remediation using Fortify and Mend",
-                        "Developed client data export functionality and delivered multiple production enhancements through GitHub, Jira, code reviews, and Agile development practices"
+                        "Built responsive frontend workflows and Spring Boot APIs for PD and LGD calculation processes",
+                        "Resolved production issues across React and backend services while improving application reliability and security",
+                        "Supported client data export features and delivered enhancements through GitHub, Jira, and Agile development practices"
                     },
-                    CompanyLogoUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/S%26P_Global_logo.svg/200px-S%26P_Global_logo.svg.png"
+                    CompanyLogoUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhM-tmZIs5K4u_SGU_3NDYTebIQTmFRpZivPL69XPScA&s=10"
                 },
                 new Experience
                 {
